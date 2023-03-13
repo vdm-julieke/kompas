@@ -1,23 +1,22 @@
+let Richting = 0
 basic.forever(function () {
-    if (input.compassHeading() > 45 && input.compassHeading() < 135) {
-        basic.showArrow(ArrowNames.West)
-    }
-    if (input.compassHeading() > 135 && input.compassHeading() < 225) {
-        basic.showArrow(ArrowNames.South)
-    }
-    if (input.compassHeading() > 225 && input.compassHeading() < 315) {
-        basic.showArrow(ArrowNames.East)
-    }
-    if (input.compassHeading() > 315) {
+    Richting = input.compassHeading()
+    if (Richting > 45 && Richting < 135) {
         basic.showLeds(`
             . . # . .
-            . # # # .
-            # . # . #
-            . . # . .
+            . # . . .
+            # # # # #
+            . # . . .
             . . # . .
             `)
     }
-    if (input.compassHeading() < 45) {
+    if (Richting > 135 && Richting < 225) {
+        basic.showArrow(ArrowNames.South)
+    }
+    if (Richting > 225 && Richting < 315) {
+        basic.showArrow(ArrowNames.East)
+    }
+    if (Richting < 45) {
         basic.showLeds(`
             . . # . .
             . # # # .
